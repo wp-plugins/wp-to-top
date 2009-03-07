@@ -1,26 +1,22 @@
 var toTop = {
 	init: function(){
+		toTop.animScroll = new YAHOO.util.Anim(null);
+	},
+	
+	scroll: function(){
 		if(toTop.getScrolledAmountY() > 0){
-			//if(YAHOO.util.Dom.getStyle('takeMeUpContainer', 'display') != 'block'){
-				YAHOO.util.Dom.setStyle('takeMeUpContainer', 'display', 'block');
-				var attributes = {
-					opacity: { from: 0, to: 1 }
-				};
-				var effect = new YAHOO.util.Anim('takeMeUpContainer', attributes, 0.5);
-				effect.animate();
-			//}
+			YAHOO.util.Dom.setStyle('takeMeUpContainer', 'display', 'block');
+			toTop.animFade = new YAHOO.util.Anim('takeMeUpContainer');
+			toTop.animFade.attributes.opacity = {from: 0, to: 1};
+			toTop.animFade.animate();
 		}
-		else{
-			//if(YAHOO.util.Dom.getStyle('takeMeUpContainer', 'display') != 'none'){
-				var attributes = {
-					opacity: { from: 1, to: 0 }
-					};
-				var effect = new YAHOO.util.Anim('takeMeUpContainer', attributes, 0.5);
-				effect.animate();
-				effect.onComplete.subscribe(function() {
-					YAHOO.util.Dom.setStyle('takeMeUpContainer', 'display', 'none');
-				});
-			//}
+		else if(toTop.getScrolledAmountY() == 0){
+			toTop.animFade = new YAHOO.util.Anim('takeMeUpContainer');
+			toTop.animFade.attributes.opacity = {from: YAHOO.util.Dom.getStyle('takeMeUpContainer', 'opacity'), to: 0};
+			toTop.animFade.animate();
+			toTop.animFade.onComplete.subscribe(function() {
+				YAHOO.util.Dom.setStyle('takeMeUpContainer', 'display', 'none');
+			});
 		}
 	},
 	
@@ -64,15 +60,12 @@ var toTop = {
 	
 	scrollToTop: function(e){
 		var scrolledAmountY = toTop.getScrolledAmountY();
-		var anim = new YAHOO.util.Anim(null,
-				{'scroll' : {
-					from : scrolledAmountY ,
-					to : 0 }
-				},
-			0.5);
-			anim.setAttribute = toTop.setAttr;
-			anim.animate();
+		toTop.animScroll.attributes.scroll = {from: scrolledAmountY, to : 0};
+		toTop.animScroll.duration = 0.5;
+		toTop.animScroll.setAttribute = toTop.setAttr;
+		toTop.animScroll.animate();
 	}
 };
-YAHOO.util.Event.on(window, 'scroll', toTop.init);
+
+YAHOO.util.Event.on(window, 'scroll', toTop.scroll);
 YAHOO.util.Event.on('takeMeUp', 'click', toTop.scrollToTop);
