@@ -66,6 +66,6 @@ var toTop = {
 		toTop.animScroll.animate();
 	}
 };
-
+YAHOO.util.Event.on(window, 'load', toTop.init);
 YAHOO.util.Event.on(window, 'scroll', toTop.scroll);
 YAHOO.util.Event.on('takeMeUp', 'click', toTop.scrollToTop);
