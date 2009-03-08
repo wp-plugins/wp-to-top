@@ -33,7 +33,15 @@ Supported features:
 
 == Frequently Asked Questions ==
 
-= I found a bug...=
+= I have activated the plugin but nothing appears... =
+
+Make sure you have the following code in your theme's footer.php :
+`<?php wp_footer(); ?>`
+
+If not, go to Design >> Theme Editor >> Select "footer.php" from right hand list >>  and paste `<?php wp_footer(); ?>` just before the '</body >' tag.
+
+
+= I found a bug... =
 
 Do it via my blog - http://htmlblog.net/ - enjoy!
 
