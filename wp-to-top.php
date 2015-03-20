@@ -2,7 +2,7 @@
 /*
 Plugin Name: WP To Top
 Plugin URI: http://htmlblog.net
-Version: 0.2
+Version: 0.2.1
 Author: Asvin Balloo
 Author URI: http://htmlblog.net
 Description: Add a "back to top" icon link to your blog
