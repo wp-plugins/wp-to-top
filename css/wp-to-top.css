@@ -23,6 +23,7 @@
 	padding: 10px;
 	background: #000;
 	color: #fff;
+	z-index: 999;
 	-webkit-transition: opacity .3s 0s, visibility 0s .3s;
 	-moz-transition: opacity .3s 0s, visibility 0s .3s;
 	transition: opacity .3s 0s, visibility 0s .3s;

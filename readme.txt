@@ -47,6 +47,10 @@ Do it via my blog - http://htmlblog.net/ - enjoy!
 
 == Changelog ==
 
+= 2.1 =
+ - Added condition for empty icon type
+ - Added z-index in CSS
+
 = 2.0 =
  - Full reboot. Now uses jQuery and the Settings API
  - Follows WordPress PHP coding standards

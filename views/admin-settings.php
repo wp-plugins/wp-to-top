@@ -4,32 +4,32 @@
 */
 ?>
 <div class="wrap">
-	<h2><?php echo __( 'WP To Top Settings', 'wp-to-top' ); ?></h2>
+    <h2><?php echo __( 'WP To Top Settings', 'wp-to-top' ); ?></h2>
 
-	<form method="post" action="options.php" class="tuttr-form">
-		<?php settings_fields( 'wp-to-top-settings-group' ); ?>
-		<?php do_settings_sections( 'wp-to-top-settings-group' ); ?>
-		
-		<table class="form-table">
-    		<tr valign="top">
-    			<th scope="row">
-    				<label for="wp-to-top-bg-color"><?php echo __( 'Background Color', 'wp-to-top' ); ?></label>
-    			</th>
+    <form method="post" action="options.php" class="tuttr-form">
+        <?php settings_fields( 'wp-to-top-settings-group' ); ?>
+        <?php do_settings_sections( 'wp-to-top-settings-group' ); ?>
+        
+        <table class="form-table">
+            <tr valign="top">
+                <th scope="row">
+                    <label for="wp-to-top-bg-color"><?php echo __( 'Background Color', 'wp-to-top' ); ?></label>
+                </th>
 
-    			<td>
-    				<input type="text" name="wp_to_top_bg_color" id="wp-to-top-bg-color" value="<?php echo esc_attr( get_option( 'wp_to_top_bg_color' ) ); ?>" maxlength="7" placeholder="#000" />
-    			</td>
-    		</tr>
+                <td>
+                    <input type="text" name="wp_to_top_bg_color" id="wp-to-top-bg-color" value="<?php echo esc_attr( get_option( 'wp_to_top_bg_color' ) ); ?>" maxlength="7" placeholder="#000" />
+                </td>
+            </tr>
 
-    		<tr valign="top">
-    			<th scope="row">
-    				<label for="wp-to-top-fg-color"><?php echo __( 'Foreground Color', 'wp-to-top' ); ?></label>
-    			</th>
+            <tr valign="top">
+                <th scope="row">
+                    <label for="wp-to-top-fg-color"><?php echo __( 'Foreground Color', 'wp-to-top' ); ?></label>
+                </th>
 
-    			<td>
-    				<input type="text" name="wp_to_top_fg_color" id="wp-to-top-fg-color" value="<?php echo esc_attr( get_option( 'wp_to_top_fg_color' ) ); ?>" maxlength="7" placeholder="#fff" />
-    			</td>
-    		</tr>
+                <td>
+                    <input type="text" name="wp_to_top_fg_color" id="wp-to-top-fg-color" value="<?php echo esc_attr( get_option( 'wp_to_top_fg_color' ) ); ?>" maxlength="7" placeholder="#fff" />
+                </td>
+            </tr>
 
             <tr valign="top">
                 <th scope="row">
@@ -42,12 +42,12 @@
                 </td>
             </tr>
 
-    		<tr valign="top">
-    			<th scope="row">
-    				<label for="wp-to-top-icon-type"><?php echo __( 'Icon Type', 'wp-to-top' ); ?></label>
-    			</th>
+            <tr valign="top">
+                <th scope="row">
+                    <label for="wp-to-top-icon-type"><?php echo __( 'Icon Type', 'wp-to-top' ); ?></label>
+                </th>
 
-    			<td>
+                <td>
                     <?php
                         $icons = array(
                             'fa-angle-double-up', 
@@ -74,8 +74,9 @@
                         <?php
                         endforeach;
                     ?>
-    			</td>
-    		</tr>
+                    <p class="description">Default: <i class="fa fa-arrow-up"></i> </p>
+                </td>
+            </tr>
 
             <tr valign="top">
                 <th scope="row">
@@ -113,12 +114,12 @@
                     <p class="description">Default: Left</p>
                 </td>
             </tr>
-		</table>
-		<!-- / form-table -->
+        </table>
+        <!-- / form-table -->
 
-		<?php submit_button(); ?>
-	</form>
-	<!-- / tuttr-form -->
+        <?php submit_button(); ?>
+    </form>
+    <!-- / tuttr-form -->
 
 </div>
 <!-- / wrap -->
